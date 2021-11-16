@@ -1,0 +1,89 @@
+<meta charset="utf-8" />
+<style>
+    body {
+      background-color: #282a36;
+      margin: 0;
+      overflow: hidden;
+    }
+    #editor {
+      position: absolute;
+      width: 60%;
+      height: 100%;
+    }
+    #terminal {
+      position: absolute;
+      margin-left: 60%;
+      height: 100%;
+      width: 40%;
+    }
+    .xterm-viewport.xterm-viewport {
+      scrollbar-width: thin;
+    }
+    .xterm-viewport::-webkit-scrollbar {
+      width: 10px;
+    }
+    .xterm-viewport::-webkit-scrollbar-track {
+      opacity: 0;
+    }
+    .xterm-viewport::-webkit-scrollbar-thumb {
+      min-height: 20px;
+      background-color: #ffffff20;
+    }
+    button {
+      background-color: #282a36;
+      border: none;
+      border-radius: 4px;
+      font-size: 28px;
+      height: 50px;
+      width: 150px;
+      transition: 0.5s;
+    }
+    #loadButton:before {
+      content: 'loading...';
+    }
+    #loadButton {
+      color: grey;
+    }
+    #loadButton:hover {
+      background-color: grey;
+      colo
+      r: white;
+    }
+    #runButton:before {
+    content: 'Run \25B6';
+  }
+    #runButton {
+      color: green;
+      cursor: pointer;
+    }
+    #runButton:hover {
+      background-color: green;
+      color: white;
+    }
+    #compilingButton:before {
+      content: 'compiling...';
+    }
+    #compilingButton {
+      color: grey;
+    }
+    #compilingButton:hover {
+      background-color: grey;
+      color: white;
+    }
+    #runningButton:before {
+      content: 'running...';
+    }
+    #runningButton {
+      color: grey;
+    }
+    #runningButton:hover {
+      background-color: grey;
+      color: white;
+    }
+</style>
+<div style="text-align: center">
+  <button id="loadButton"></button>
+</div>
+<div id="editor"></div>
+<div id="terminal"></div>
+<script src="main.js"></script>
