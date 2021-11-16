@@ -122,7 +122,7 @@ worker.onmessage = (e) => {
       button.id = e.data[1];
       break;
     case 'out':
-      terminal.write(e.replace('\n', '\n\r'));
+      terminal.write(e.data[1].replace('\n', '\n\r'));
       break;
     default:
       console.log('default in main from: ' + e.data);
