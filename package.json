@@ -6,7 +6,7 @@
     "@codemirror/commands": "0.19.5",
     "@codemirror/lang-java": "0.19.1",
     "@codemirror/theme-one-dark": "0.19.1",
-    "browserfs": "1.2.1",
+    "browserfs": "1.4.3",
     "css-loader": "6.5.1",
     "doppiojvm": "0.5.0",
     "js-cookie": "3.0.1",
