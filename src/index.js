@@ -130,34 +130,34 @@ worker.onmessage = (e) => {
   }
 };
 
-var command = '';
+// var command = '';
 terminal.onData((e) => {
-  switch (e) {
-    case '\r': // Enter
-      terminal.writeln('');
-      worker.postMessage(['in', command]);
-      command = '';
-      break;
-    case '': // Backspace (DEL)
-      if (command.length > 0) {
-        terminal.write('\b \b');
-        command = command.substr(0, command.length - 1);
-      }
-      break;
-    default:
-      // all other visible characters
-      if (e >= ' ' && e <= '~') {
-        terminal.write(e);
-        command += e;
-      }
-      console.log(e);
-  }
-});
+  console.log(e);
+  // terminal.write(e.replace('\r', '\r\n').replace('', '\b \b'));
+  // for(let c in e) {
 
-terminal.attachCustomKeyEventHandler(e => {
-  if (e.key === 'v' && e.ctrlKey) {
-    return false;
-  }
+
+  
+  // switch (e) {
+  //   case '\r': // Enter
+  //     terminal.writeln('');
+  //     worker.postMessage(['in', command]);
+  //     command = '';
+  //     break;
+  //   case '': // Backspace (DEL)
+  //     if (command.length > 0) {
+  //       terminal.write('\b \b');
+  //       command = command.substr(0, command.length - 1);
+  //     }
+  //     break;
+  //   default:
+  //     // all other visible characters
+  //     if (e >= ' ' && e <= '~') {
+  //       terminal.write(e);
+  //       command += e;
+  //     }
+  //     console.log(e);
+  // }
 });
 
 button.onclick = () => {
