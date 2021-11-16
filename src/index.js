@@ -135,7 +135,8 @@ terminal.onData((e) => {
   for (let c in e) {
     switch (e[c]) {
       case '\r':
-        worker.postMessage(['in', command]);
+        if (button.id === 'runningButton')
+          worker.postMessage(['in', command]);
         command = '';
         break;
       case '':
