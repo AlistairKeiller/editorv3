@@ -132,8 +132,9 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  console.log(e.split('\r'));
-  terminal.write(e.replace('\r', '\r\n').replace('', '\b \b'));
+  for(let c in e.replace('', '\b \b').split('\r').slice(0, -1))
+    terminal.writeln(c);
+  terminal.write(e.replace('', '\b \b').split('\r').slice(-1)[0]);
   for(let c in e) {
     switch(c) {
       case '\r':
