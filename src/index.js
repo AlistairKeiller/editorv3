@@ -151,3 +151,12 @@ terminal.onData((e) => {
       }
   }
 });
+
+button.onclick = () => {
+  if (button.id == 'runButton' && view.state.doc.toString() != '') {
+    button.id = 'compilingButton';
+    terminal.reset();
+    command = '';
+    worker.postMessage(['compileAndRun', view.state.doc.toString()]);
+  }
+};
