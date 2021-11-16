@@ -150,6 +150,7 @@ terminal.onData((e) => {
         terminal.write(e);
         command += e;
       }
+      console.log(e);
   }
 });
 
