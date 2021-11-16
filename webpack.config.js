@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   mode: 'production',
   module: {
@@ -8,4 +10,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new webpack.ProvidePlugin({ BrowserFS: 'browserfs' })],
 };

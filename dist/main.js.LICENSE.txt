@@ -7,6 +7,8 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! js-cookie v3.0.1 | MIT */
+
 /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */

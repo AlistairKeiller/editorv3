@@ -12,17 +12,31 @@ import { Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
 import '../node_modules/xterm/css/xterm.css';
 
+import Cookies from 'js-cookie';
+
 const ydoc = new Y.Doc();
-const provider = new WebrtcProvider('codemirror6-demo-room-2', ydoc);
+const provider = new WebrtcProvider(window.location.pathname, ydoc);
 const ytext = ydoc.getText('codemirror');
 
 const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
 
+if (!Cookies.get('name'))
+  Cookies.set('name', 'User ' + Math.floor(Math.random() * 100));
+
 provider.awareness.setLocalStateField('user', {
-  name: 'Anonymous ' + Math.floor(Math.random() * 100),
+  name: Cookies.get('name'),
   color: color,
   colorLight: color,
 });
+
+const nameForum = document.getElementById('nameForum');
+nameForum.value = Cookies.get('name');
+nameForum.onchange = () => {
+  provider.awareness.setLocalStateField('user', {
+    name: nameForum.value,
+  });
+  Cookies.set('name', nameForum.value);
+};
 
 const view = new EditorView({
   state: EditorState.create({
@@ -36,7 +50,13 @@ const view = new EditorView({
       oneDark,
       EditorView.theme({
         '&': { height: '100%' },
-        '.cm-scroller': { overflow: 'auto' },
+        '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
+        '.cm-scroller::-webkit-scrollbar': { width: '10px' },
+        '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
+        '.cm-scroller::-webkit-scrollbar-thumb': {
+          minHeight: '20px',
+          backgroundColor: '#ffffff20',
+        },
       }),
     ],
   }),
@@ -91,131 +111,43 @@ terminal.writeln(
     ' │                                            ^ Try clicking italic text      │',
     ' │                                                                            │',
     ' └────────────────────────────────────────────────────────────────────────────┘',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
   ].join('\n\r')
 );
 
-// const worker = new Worker(new URL('./doppio.js', import.meta.url));
-// const button = document.getElementById('loadButton');
-// button.onclick = () => {
-//   console.log('test');
-// };
+const worker = new Worker(new URL('./doppio.js', import.meta.url));
+const button = document.getElementById('loadButton');
+worker.onmessage = (e) => {
+  switch (e.data[0]) {
+    case 'changeButton':
+      button.id = e.data[1];
+      break;
+    case 'out':
+      terminal.write(e.data[1].replace('\u000A', '\r\n'));
+      break;
+    default:
+      console.log('default in main from: ' + e.data);
+  }
+};
+
+var command = '';
+terminal.onData((e) => {
+  switch (e) {
+    case '\r': // Enter
+      terminal.writeln('');
+      worker.postMessage(['in', command]);
+      command = '';
+      break;
+    case '': // Backspace (DEL)
+      if (command.length > 0) {
+        terminal.write('\b \b');
+        command = command.substr(0, command.length - 1);
+      }
+      break;
+    default:
+      // all other visible characters
+      if (e >= ' ' && e <= '~') {
+        terminal.write(e);
+        command += e;
+      }
+  }
+});
