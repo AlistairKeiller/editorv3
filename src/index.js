@@ -132,7 +132,7 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  term.write(data.replace('', '\b \b').replace(/\r/g, '\n\r'));
+  terminal.write(data.replace('', '\b \b').replace(/\r/g, '\n\r'));
   for(let c in e) {
     switch(c) {
       case /\r/g:
