@@ -122,8 +122,7 @@ worker.onmessage = (e) => {
       button.id = e.data[1];
       break;
     case 'out':
-      // terminal.write(e.data[1].replace('\u000A', '\r\n'));
-      terminal.paste(e.data[1]);
+      terminal.write(e.replace('', '\b \b').replace(/\r/g, '\n\r'));
       break;
     default:
       console.log('default in main from: ' + e.data);
@@ -132,20 +131,18 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  terminal.write(data.replace('', '\b \b').replace(/\r/g, '\n\r'));
-  for(let c in e) {
-    switch(c) {
-      case /\r/g:
+  terminal.write(e.replace('', '\b \b').replace(/\r/g, '\n\r'));
+  for (let c in e) {
+    switch (e[c]) {
+      case '\r':
         worker.postMessage(['in', command]);
-        console.log('post: ' + command);
         command = '';
         break;
       case '':
-        if (command.length > 0)
-          command = command.slice(0, -1);
+        if (command.length > 0) command = command.slice(0, -1);
         break;
       default:
-        command += c;
+        command += e[c];
     }
   }
 });
