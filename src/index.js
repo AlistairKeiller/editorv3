@@ -153,6 +153,12 @@ terminal.onData((e) => {
   }
 });
 
+terminal.attachCustomKeyEventHandler(e => {
+  if (e.key === 'v' && e.ctrlKey) {
+    return false;
+  }
+});
+
 button.onclick = () => {
   if (button.id == 'runButton' && view.state.doc.toString() != '') {
     button.id = 'compilingButton';
