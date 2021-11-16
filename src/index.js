@@ -122,7 +122,8 @@ worker.onmessage = (e) => {
       button.id = e.data[1];
       break;
     case 'out':
-      terminal.write(e.data[1].replace('\u000A', '\r\n'));
+      // terminal.write(e.data[1].replace('\u000A', '\r\n'));
+      terminal.paste(e.data[1]);
       break;
     default:
       console.log('default in main from: ' + e.data);
@@ -149,8 +150,6 @@ terminal.onData((e) => {
         terminal.write(e);
         command += e;
       }
-      console.log(e);
-      console.log(e.toString());
   }
 });
 
