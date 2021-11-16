@@ -130,13 +130,25 @@ worker.onmessage = (e) => {
   }
 };
 
-// var command = '';
+var command = '';
 terminal.onData((e) => {
   console.log(e);
-  // terminal.write(e.replace('\r', '\r\n').replace('', '\b \b'));
-  // for(let c in e) {
-
-
+  terminal.write(e.replace('\r', '\r\n').replace('', '\b \b'));
+  for(let c in e) {
+    switch(c) {
+      case '\r':
+        worker.postMessage(['in', command]);
+        console.log('post: ' + command);
+        command = '';
+        break;
+      case '':
+        if (command.length > 0)
+          command = command.slice(0, -1);
+        break;
+      default:
+        command += c;
+    }
+  }
   
   // switch (e) {
   //   case '\r': // Enter
