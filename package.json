@@ -1,27 +1,22 @@
 {
   "name": "node-starter",
   "version": "0.0.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
-    "@codemirror/basic-setup": "^0.19.0",
-    "@codemirror/commands": "^0.19.5",
-    "@codemirror/lang-java": "^0.19.1",
-    "@codemirror/lang-javascript": "^0.19.3",
-    "@codemirror/theme-one-dark": "^0.19.1",
-    "browserfs": "^1.2.1",
-    "css-loader": "^6.5.1",
-    "doppiojvm": "^0.5.0",
-    "js-cookie": "^3.0.1",
-    "node-static": "^0.7.11",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.64.1",
-    "webpack-cli": "^4.9.1",
-    "xterm": "^4.15.0",
-    "xterm-addon-fit": "^0.5.0",
-    "y-codemirror.next": "^0.1.0",
-    "y-webrtc": "^10.2.2",
-    "yjs": "^13.5.21"
+    "@codemirror/basic-setup": "0.19.0",
+    "@codemirror/commands": "0.19.5",
+    "@codemirror/lang-java": "0.19.1",
+    "@codemirror/theme-one-dark": "0.19.1",
+    "browserfs": "1.2.1",
+    "css-loader": "6.5.1",
+    "doppiojvm": "0.5.0",
+    "js-cookie": "3.0.1",
+    "style-loader": "3.3.1",
+    "webpack": "5.64.1",
+    "webpack-cli": "4.9.1",
+    "xterm": "4.15.0",
+    "xterm-addon-fit": "0.5.0",
+    "y-codemirror.next": "0.1.0",
+    "y-webrtc": "10.2.2",
+    "yjs": "13.5.21"
   }
 }
