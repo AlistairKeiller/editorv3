@@ -132,12 +132,10 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  for(let c in e.replace('', '\b \b').split('\r').slice(0, -1))
-    terminal.writeln(c);
-  terminal.write(e.replace('', '\b \b').split('\r').slice(-1)[0]);
+  term.write(data.replace('', '\b \b').replace(/\r/g, '\n\r'));
   for(let c in e) {
     switch(c) {
-      case '\r':
+      case /\r/g:
         worker.postMessage(['in', command]);
         console.log('post: ' + command);
         command = '';
@@ -150,27 +148,6 @@ terminal.onData((e) => {
         command += c;
     }
   }
-  
-  // switch (e) {
-  //   case '\r': // Enter
-  //     terminal.writeln('');
-  //     worker.postMessage(['in', command]);
-  //     command = '';
-  //     break;
-  //   case '': // Backspace (DEL)
-  //     if (command.length > 0) {
-  //       terminal.write('\b \b');
-  //       command = command.substr(0, command.length - 1);
-  //     }
-  //     break;
-  //   default:
-  //     // all other visible characters
-  //     if (e >= ' ' && e <= '~') {
-  //       terminal.write(e);
-  //       command += e;
-  //     }
-  //     console.log(e);
-  // }
 });
 
 button.onclick = () => {
