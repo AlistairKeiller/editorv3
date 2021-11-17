@@ -17,6 +17,7 @@ import Cookies from 'js-cookie';
 const ydoc = new Y.Doc();
 const provider = new WebrtcProvider(window.location.pathname, ydoc);
 const ytext = ydoc.getText('codemirror');
+ytext.insert(0, 'ytext');
 
 const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
 
