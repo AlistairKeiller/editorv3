@@ -91,6 +91,7 @@ terminal.open(document.getElementById('terminal'));
 fitAddon.fit();
 terminal.writeln(
   [
+    '',
     '    Basicly Client Side (BCS) is a java IDE that attempts to combine the',
     '    power of a full fledged a editor with the ease of use of the browser',
     '',
