@@ -49,14 +49,11 @@ const view = new EditorView({
       java(),
       EditorView.theme({
         '&': { height: '100%' },
-        '.cm-focused': { outline: 'none' },
+        '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket': { outline: 'none' },
         '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
         '.cm-scroller::-webkit-scrollbar': { width: '10px' },
         '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
-        '.cm-scroller::-webkit-scrollbar-thumb': {
-          minHeight: '20px',
-          backgroundColor: '#ffffff20',
-        },
+        '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
       }),
       oneDark,
     ],
