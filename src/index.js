@@ -63,6 +63,13 @@ const view = new EditorView({
   parent: document.getElementById('editor'),
 });
 
+provider.on('synced', () => {
+  if (view.state.doc.toString() === '')
+    view.dispatch({
+      changes: {from: 0, insert: 'import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n    }\n}'},
+    })
+});
+
 const terminal = new Terminal({
   fontFamily: '"Cascadia Code", Menlo, monospace',
   theme: {
@@ -149,9 +156,8 @@ terminal.onData((e) => {
 });
 
 terminal.attachCustomKeyEventHandler(e => {
-  if (e.key === 'v' && e.ctrlKey) {
+  if (e.key === 'v' && e.ctrlKey)
     return false;
-  }
   if (e.key === 'c' && e.ctrlKey) {
     navigator.clipboard.writeText(terminal.getSelection());
     return false;
