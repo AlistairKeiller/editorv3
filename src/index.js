@@ -40,7 +40,7 @@ nameForum.onchange = () => {
 
 const view = new EditorView({
   state: EditorState.create({
-    doc: 'ytext.toString()',
+    doc: ytext.toString(),
     extensions: [
       keymap.of(yUndoManagerKeymap),
       basicSetup,
