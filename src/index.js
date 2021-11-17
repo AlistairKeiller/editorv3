@@ -42,19 +42,18 @@ const view = new EditorView({
   state: EditorState.create({
     doc: ytext.toString(),
     extensions: [
-      EditorView.theme({
-        '&': { height: '100%' },
-        '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket': { outline: 'none' },
-        '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
-        '.cm-scroller::-webkit-scrollbar': { width: '10px' },
-        '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
-        '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
-      }),
       keymap.of(yUndoManagerKeymap),
       yCollab(ytext, provider.awareness),
       basicSetup,
       keymap.of(indentWithTab),
       java(),
+      EditorView.theme({
+        '&': { height: '100%' },
+        '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
+        '.cm-scroller::-webkit-scrollbar': { width: '10px' },
+        '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
+        '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
+      }),
       oneDark,
     ],
   }),
