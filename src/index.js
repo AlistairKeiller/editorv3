@@ -54,7 +54,6 @@ const view = new EditorView({
         '.cm-scroller::-webkit-scrollbar': { width: '10px' },
         '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
         '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
-        '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket': { outline: 'none' },
       }),
     ],
   }),
