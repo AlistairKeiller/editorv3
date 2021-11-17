@@ -63,9 +63,6 @@ const view = new EditorView({
   parent: document.getElementById('editor'),
 });
 
-if(ytext.toString() == '')
-  ytext.insert(0, 'ytext');
-
 const terminal = new Terminal({
   fontFamily: '"Cascadia Code", Menlo, monospace',
   theme: {
