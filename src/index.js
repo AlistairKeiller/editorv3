@@ -63,15 +63,6 @@ const view = new EditorView({
   parent: document.getElementById('editor'),
 });
 
-provider.on('synced', () => {
-  if (view.state.doc.toString() === '')
-    view.dispatch({
-      changes: {from: 0, insert: 'import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n    }\n}'},
-    })
-  else
-    console.log('not empty');
-});
-
 const terminal = new Terminal({
   fontFamily: '"Cascadia Code", Menlo, monospace',
   theme: {
