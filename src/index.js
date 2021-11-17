@@ -153,7 +153,7 @@ terminal.attachCustomKeyEventHandler(e => {
     return false;
   }
   if (e.key === 'c' && e.ctrlKey) {
-    navigator.clipboard.writeText(window.getSelection().toString());
+    navigator.clipboard.writeText(terminal.getSelection());
     return false;
   }
 });
