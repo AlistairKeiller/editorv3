@@ -148,6 +148,16 @@ terminal.onData((e) => {
   }
 });
 
+terminal.attachCustomKeyEventHandler(e => {
+  if (e.key === 'v' && e.ctrlKey) {
+    return false;
+  }
+  if (e.key === 'c' && e.ctrlKey) {
+    navigator.clipboard.writeText(window.getSelection().toString());
+    return false;
+  }
+});
+
 button.onclick = () => {
   if (button.id == 'runButton' && view.state.doc.toString() != '') {
     button.id = 'compilingButton';
