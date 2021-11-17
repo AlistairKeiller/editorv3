@@ -43,7 +43,7 @@ process.stdout.on('data', (d) => {
 });
 process.stderr.on('data', (d) => {
   stderr = true;
-  postMessage(['out', d.toString()]);
+  postMessage(['out', '\x1b[31;1m'+d.toString()+'\x1b[0m']);
 });
 
 onmessage = (e) => {
