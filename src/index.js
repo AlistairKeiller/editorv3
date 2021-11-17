@@ -44,6 +44,13 @@ const view = new EditorView({
     extensions: [
       keymap.of(yUndoManagerKeymap),
       yCollab(ytext, provider.awareness),
+      EditorView.theme({
+        '&': { height: '100%', outline: 'none'},
+        '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
+        '.cm-scroller::-webkit-scrollbar': { width: '10px' },
+        '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
+        '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
+      }),
       basicSetup,
       keymap.of(indentWithTab),
       java(),
@@ -51,16 +58,6 @@ const view = new EditorView({
     ],
   }),
   parent: document.getElementById('editor'),
-});
-
-view.dispatch({
-  effects: EditorView.theme({
-    '&': { height: '100%', outline: 'none'},
-    '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
-    '.cm-scroller::-webkit-scrollbar': { width: '10px' },
-    '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
-    '.cm-scroller::-webkit-scrollbar-thumb': { minHeight: '20px', backgroundColor: '#ffffff20' },
-  }),
 });
 
 const terminal = new Terminal({
