@@ -125,7 +125,6 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  // terminal.write(e.replace('', '\b \b').replace(/\r/g, '\n\r'));
   for (let c in e) {
     switch (e[c]) {
       case /\r/g:
@@ -142,6 +141,7 @@ terminal.onData((e) => {
         };
         break;
       default:
+        terminal.write(e[c]);
         command += e[c];
     }
   }
