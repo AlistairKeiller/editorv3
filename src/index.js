@@ -42,10 +42,11 @@ const view = new EditorView({
   state: EditorState.create({
     doc: ytext.toString(),
     extensions: [
+      keymap.of(yUndoManagerKeymap),
+      basicSetup,
       EditorView.theme({
         '&': { height: '100%' },
-        // remove outline
-        '.ͼ1.cm-editor.cm-focused': { outline: 'none' },
+        '.cm-focused': { outline: 'none' },
         '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
         '.cm-scroller::-webkit-scrollbar': { width: '10px' },
         '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
@@ -54,8 +55,6 @@ const view = new EditorView({
           backgroundColor: '#ffffff20',
         },
       }),
-      keymap.of(yUndoManagerKeymap),
-      basicSetup,
       java(),
       yCollab(ytext, provider.awareness),
       keymap.of(indentWithTab),
