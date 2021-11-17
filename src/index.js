@@ -125,16 +125,21 @@ worker.onmessage = (e) => {
 
 var command = '';
 terminal.onData((e) => {
-  terminal.write(e.replace('', '\b \b').replace(/\r/g, '\n\r'));
+  // terminal.write(e.replace('', '\b \b').replace(/\r/g, '\n\r'));
   for (let c in e) {
     switch (e[c]) {
+      case /\r/g:
       case '\r':
+        terminal.write('\n\r');
         if (button.id === 'runningButton')
           worker.postMessage(['in', command]);
         command = '';
         break;
       case '':
-        if (command.length > 0) command = command.slice(0, -1);
+        if (command.length > 0) {
+          terminal.write('\b \b');
+          command = command.slice(0, -1)
+        };
         break;
       default:
         command += e[c];
