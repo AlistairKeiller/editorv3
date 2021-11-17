@@ -43,7 +43,10 @@ const view = new EditorView({
     doc: ytext.toString(),
     extensions: [
       keymap.of(yUndoManagerKeymap),
+      yCollab(ytext, provider.awareness),
       basicSetup,
+      keymap.of(indentWithTab),
+      java(),
       EditorView.theme({
         '&': { height: '100%' },
         '.cm-focused': { outline: 'none' },
@@ -55,9 +58,6 @@ const view = new EditorView({
           backgroundColor: '#ffffff20',
         },
       }),
-      java(),
-      yCollab(ytext, provider.awareness),
-      keymap.of(indentWithTab),
       oneDark,
     ],
   }),
