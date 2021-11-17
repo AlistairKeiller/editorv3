@@ -94,7 +94,7 @@ terminal.open(document.getElementById('terminal'));
 fitAddon.fit();
 terminal.writeln(
   [
-    '    Basicly Client Side (BSC) is a java IDE that attempts to combine the',
+    '    Basicly Client Side (BCS) is a java IDE that attempts to combine the',
     '    power of a full fledged a editor with the ease of use of the browser',
     '',
     ' ┌ \x1b[1mFeatures\x1b[0m ──────────────────────────────────────────────────────────────────┐',
