@@ -45,7 +45,8 @@ const view = new EditorView({
       keymap.of(yUndoManagerKeymap),
       yCollab(ytext, provider.awareness),
       EditorView.theme({
-        '&': { height: '100%', outline: 'none'},
+        '&': { height: '100%' },
+        '.cm-editor.cm-focused': { outline: 'none' },
         '.cm-scroller': { overflow: 'auto', scrollbarWidth: 'thin' },
         '.cm-scroller::-webkit-scrollbar': { width: '10px' },
         '.cm-scroller::-webkit-scrollbar-track': { opacity: '0' },
