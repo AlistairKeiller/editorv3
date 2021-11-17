@@ -94,21 +94,17 @@ terminal.open(document.getElementById('terminal'));
 fitAddon.fit();
 terminal.writeln(
   [
-    '    Xterm.js is the frontend component that powers many terminals including',
-    '                           \x1b[3mVS Code\x1b[0m, \x1b[3mHyper\x1b[0m and \x1b[3mTheia\x1b[0m!',
+    '    Basicly Client Side (BSC) is a java IDE that attempts to combine the',
+    '    power of a full fledged a editor with the ease of use of the browser',
     '',
     ' ┌ \x1b[1mFeatures\x1b[0m ──────────────────────────────────────────────────────────────────┐',
     ' │                                                                            │',
-    ' │  \x1b[31;1mApps just work                         \x1b[32mPerformance\x1b[0m                        │',
-    ' │   Xterm.js works with most terminal      Xterm.js is fast and includes an  │',
-    ' │   apps like bash, vim and tmux           optional \x1b[3mWebGL renderer\x1b[0m           │',
+    ' │  \x1b[31;1mCollaboration just works                \x1b[32mPerformance\x1b[0m                       │',
+    ' │  have collaborators join                 xterm.js, codemirror 6, yjs, and  │',
+    ' │  alicalik1.github.io/insert_text_here    doppioJVM maximize performance    │',
     ' │                                                                            │',
-    ' │  \x1b[33;1mAccessible                             \x1b[34mSelf-contained\x1b[0m                     │',
-    ' │   A screen reader mode is available      Zero external dependencies        │',
-    ' │                                                                            │',
-    ' │  \x1b[35;1mUnicode support                        \x1b[36mAnd much more...\x1b[0m                   │',
-    ' │   Supports CJK 語 and emoji \u2764\ufe0f            \x1b[3mLinks\x1b[0m, \x1b[3mthemes\x1b[0m, \x1b[3maddons\x1b[0m, \x1b[3mtyped API\x1b[0m  │',
-    ' │                                            ^ Try clicking italic text      │',
+    ' │  \x1b[33;1mAccessible                              \x1b[34mEasy to learn\x1b[0m                     │',
+    ' │  Works on any browser                    Anyone can quickly learn BSC      │',
     ' │                                                                            │',
     ' └────────────────────────────────────────────────────────────────────────────┘',
   ].join('\n\r')
