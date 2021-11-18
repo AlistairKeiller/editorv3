@@ -105,6 +105,8 @@ terminal.writeln(
     ' │  Works on any browser                    Anyone can quickly learn BSC      │',
     ' │                                                                            │',
     ' └────────────────────────────────────────────────────────────────────────────┘',
+    '',
+    '    Just a note: "loading..." means loading an entire JVM and javascript JVM emulator which can take a while.',
   ].join('\n\r')
 );
 
