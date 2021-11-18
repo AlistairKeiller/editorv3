@@ -106,7 +106,8 @@ terminal.writeln(
     ' │                                                                            │',
     ' └────────────────────────────────────────────────────────────────────────────┘',
     '',
-    '    Just a note: "loading..." means loading an entire JVM and javascript JVM emulator which can take a while.',
+    '    Just a note: "loading..." means loading an entire JVM',
+    '    and javascript JVM emulator which can take a while.',
   ].join('\n\r')
 );
 
