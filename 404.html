@@ -1,0 +1,101 @@
+<meta charset="utf-8" />
+<style>
+    body {
+      background-color: #1e1e1e;
+      margin: 0;
+      overflow: hidden;
+    }
+    #editor {
+      position: absolute;
+      width: 60%;
+      height: 95%;
+    }
+    #terminal {
+      position: absolute;
+      margin-left: 60%;
+      width: 40%;
+      height: 95%;
+    }
+    .xterm-viewport.xterm-viewport {
+      scrollbar-width: thin;
+    }
+    .xterm-viewport::-webkit-scrollbar {
+      width: 10px;
+    }
+    .xterm-viewport::-webkit-scrollbar-track {
+      opacity: 0;
+    }
+    .xterm-viewport::-webkit-scrollbar-thumb {
+      min-height: 20px;
+      background-color: #ffffff20;
+    }
+    .cm-editor.cm-focused {
+      outline: none;
+    }
+    button {
+      background-color: #1e1e1e;
+      border: none;
+      border-radius: 4px;
+      font-size: 28px;
+      width: 8%;
+      height: 5%;
+      transition: 0.5s;
+    }
+    #loadButton:before {
+      content: 'loading...';
+    }
+    #loadButton {
+      color: grey;
+    }
+    #loadButton:hover {
+      background-color: grey;
+      color: white;
+    }
+    #runButton:before {
+    content: 'Run \25B6';
+  }
+    #runButton {
+      color: green;
+      cursor: pointer;
+    }
+    #runButton:hover {
+      background-color: green;
+      color: white;
+    }
+    #compilingButton:before {
+      content: 'compiling...';
+    }
+    #compilingButton {
+      color: grey;
+    }
+    #compilingButton:hover {
+      background-color: grey;
+      color: white;
+    }
+    #runningButton:before {
+      content: 'running...';
+    }
+    #runningButton {
+      color: grey;
+    }
+    #runningButton:hover {
+      background-color: grey;
+      color: white;
+    }
+    #nameForum {
+      background-color: #1e1e1e;
+      outline: none;
+      border-radius: 4px;
+      font-size: 20px;
+      color: grey;
+      width: 8%;
+      height: 5%;
+    }
+</style>
+<div style="text-align: center">
+  <button id="loadButton"></button>
+  <input id="nameForum" type="text" />
+</div>
+<div id="editor"></div>
+<div id="terminal"></div>
+<script src="main.js"></script>
