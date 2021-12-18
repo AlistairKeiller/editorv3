@@ -3,20 +3,20 @@
 Basicly Client Side (BCS) is a java IDE that attempts to combine the
 power of a full fledged a editor with the ease of use of the browser
 
-Features:
+**Features:**
 
-Collaboration just works:
+**Collaboration just works:**
 have collaborators join
 alicalik1.github.io/editorv3/text  
 
-Performance:
+**Performance:**
 xterm.js, codemirror 6, yjs, and
 doppioJVM maximize performance
 
-Accessible:
+**Accessible:**
 Works on any browser
 
-Easy to learn:
+**Easy to learn:**
 Anyone can quickly learn BSC
 
 Just a note: "loading..." means loading an entire JVM
